@@ -10,15 +10,16 @@
 			// extract the prayer times
 			var re = /<th class="prayerName ">(\w+)<\/th><td class="begins ">([\d:]+)<\/td>/g;
 			var matches;
+			var prayerTimes = "";
 			while ((matches = re.exec(html)) !== null) {
 			  var prayerName = matches[1];
 			  var prayerTime = matches[2];
-			  console.log(prayerName + ': ' + prayerTime);
+			  prayerTimes += prayerName + ': ' + prayerTime + "<br>";
 			}
+			document.body.innerHTML = "<h1>Prayer Times</h1>" + prayerTimes;
 		}
 	</script>
 </head>
 <body>
-	<h1>Prayer Times</h1>
 </body>
 </html>
